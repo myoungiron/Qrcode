@@ -15,6 +15,17 @@ var scanCode = function() {
         function(result) {
         	
         	location.hash="#pagethree";  
+        	//判断得到的内容是不是网页
+        	var first= result.text.indexOf("http");
+        	if(first == 0){
+        		$("#p_span").html(result.text);
+        		$("#a_span").attr("style","visibility:visible");
+        		$("#a_span").attr("href",result.text);
+        		
+        	}else{
+        		$("#p_span").html(result.text);
+        	}
+        	
         	
         	$("#p_span").html(result.text);
        /*  alert("Scanned Code: " + result.text 
@@ -80,7 +91,7 @@ var scanCode = function() {
 
             }
            	//生成图片
-           	var strDataURI = QR.canvas.toDataURL();
+           	var strDataURI = QR.canvas.toDataURL()
            	
             //汉字支持
             function utf16to8(str) {
@@ -122,7 +133,7 @@ var scanCode = function() {
   
   
 
-<p> "扫描内容: "<span id="p_span"></span><p>
+<p> "扫描内容: "<span id="p_span"></span><br><a id="a_span" style="visibility:hidden" href="#">跳转</a></p>
   
   
   
