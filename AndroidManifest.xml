@@ -85,7 +85,7 @@
     
         
   <!--  使程序在横竖屏切换的时候不会再执行onCreate方法 -->
-<activity
+ <!-- <activity
             android:name=".SplashActivity"
         
             android:configChanges="orientation|keyboardHidden"
@@ -95,7 +95,7 @@
  
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-        </activity>
+        </activity> -->
 <activity
             android:name=".MainActivity"
         
