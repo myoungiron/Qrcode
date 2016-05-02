@@ -9,35 +9,49 @@
 </head>
 
 <body>
+	<!-- 首页 -->
 	<div data-role="page" id="pageone" data-theme="a">
-		<div data-role="header">
+		<div data-role="header" data-position="fixed">
 			<h1>首页</h1>
 		</div>
 		<div data-role="content">
-			<p>i am a student</p>
+			<p>二维码的扫描与生成 --by郭照阳</p>
 			<p>
-				<a href="#pagetwo"  data-role="button" data-transition="flow">生成二维码</a>
+				<a onclick="scanCode()" data-role="button" data-transition="flow">扫描二维码</a>
 			</p>
 			<p>
-				<a onclick="scanCode()"  data-role="button" data-transition="flow">识别二维码</a>
+				<a href="#pagetwo" data-role="button" data-transition="flow">生成二维码</a>
 			</p>
-			<p>
-				<a href="#pagethree"  data-role="button" data-transition="flow">识别二维码</a>
-			</p>
+
+				<p>
+				<a href="#confirm-dialog"  data-role="button">生成二维码</a>
+			</p> 
 		</div>
-		<div data-role="footer" data-position="fixed">
+		<div data-role="footer" data-position="fixed" data-fullscreen="true">
 			<h1>版权所有</h1>
 		</div>
 	</div>
+	<!-- 弹出框 -->
+	<div data-role="dialog" id="confirm-dialog">
 
 
-	<div data-role="page" id="pagetwo" data-theme="a">
 		<div data-role="header">
+			<h1>选择</h1>
+		</div>
+		<div data-role="content">
+			<p>请选择要生成的二维码的种类</p>
+			<a href="#pagetwo" data-role="button">文本</a> <a href="#pagetwo"
+				data-role="button">网址</a> <a href="#pagetwo" data-role="button">名片</a>
+		</div>
+	</div>
+	<!-- 生成二维码 -->
+	<div data-role="page" id="pagetwo" data-theme="a">
+		<div data-role="header" data-position="fixed">
 			<a href="#pageone" data-transition="flow" data-icon="back"
 				data-direction="reverse" data-role="button">返回</a>
 			<h1>生成二维码</h1>
-			<a  data-role="button" data-transition="flow"
-				data-icon="plus" onclick="saveQrcode()">保存</a>
+			<a data-role="button" data-transition="flow" data-icon="plus"
+				onclick="saveQrcode()">保存</a>
 		</div>
 		<div data-role="content">
 			<input id="input" type="text" style="margin-left: 50px">
@@ -50,15 +64,15 @@
 
 
 		</div>
-		<div data-role="footer" data-position="fixed">
+		<div data-role="footer" data-position="fixed" data-fullscreen="true">
 			<h1>版权所有</h1>
 		</div>
 	</div>
 
 
-
-	<div data-role="page" id="pagethree" data-theme="a"> 
-		<div data-role="header">
+	<!-- 识别后显示 -->
+	<div data-role="page" id="pagethree" data-theme="a">
+		<div data-role="header" data-position="fixed">
 			<a href="#pageone" data-transition="flow" data-icon="back"
 				data-direction="reverse" data-role="button">返回</a>
 			<h1>识别二维码</h1>
@@ -66,23 +80,12 @@
 				data-icon="plus">本地图片</a>
 		</div>
 		<div data-role="content">
-
-
-
-
 			<p>
 				"扫描内容: "<span id="p_span"></span><br> <a id="a_span"
 					style="visibility: hidden" href="#">跳转</a>
 			</p>
-
-
-
-
-
-
-
 		</div>
-		<div data-role="footer" data-position="fixed">
+		<div data-role="footer" data-position="fixed" data-fullscreen="true">
 			<h1>版权所有</h1>
 		</div>
 	</div>
