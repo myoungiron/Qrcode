@@ -8,7 +8,7 @@
         android:minSdkVersion="17"
         android:targetSdkVersion="19" />
     
-    
+  
     <supports-screens
         android:anyDensity="true"
         android:largeScreens="true"
@@ -38,15 +38,16 @@
     <uses-feature android:name="android.hardware.camera.autofocus" /> 
 <application
         android:allowBackup="true"
-        android:icon="@drawable/ic_launcher"
+        android:icon="@drawable/abc"
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
         
     
     
     
-    <!-- ZXing activities -->
+    <!-- ZXing activities  限制页面横屏显示 ，显示第一界面，切屏时会重新调用生命周期，样式，隐藏软键盘，该服务能够被其他程序组件调用-->
 	<activity android:name="com.google.zxing.client.android.CaptureActivity"
+	   
           android:screenOrientation="landscape"
           android:clearTaskOnLaunch="true"
           android:configChanges="orientation|keyboardHidden"

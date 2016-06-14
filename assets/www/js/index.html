@@ -40,13 +40,13 @@
 		</div>
 		<div data-role="content">
 			<p>请选择要生成的二维码的种类</p>
-			<a href="#pagetwo" data-role="button">文本</a> 
+			<a href="#pagetwo_text" data-role="button">文本</a> 
 			<a href="#pagetwo_ie" data-role="button">网址</a> 
-				<a href="#pagetwo_name" data-role="button">名片</a>
+			<a href="#pagetwo_mane" data-role="button">名片</a>
 		</div>
 	</div>
-	<!-- 生成二维码 -->
-	<div data-role="page" id="pagetwo" data-theme="a">
+	<!-- 生成文本二维码 -->
+	<div data-role="page" id="pagetwo_text" data-theme="a">
 		<div data-role="header" data-position="fixed">
 			<a href="#pageone" data-transition="flow" data-icon="back"
 				data-direction="reverse" data-role="button">返回</a>
@@ -71,7 +71,8 @@
 	</div>
 	
 	
-	<!-- 生成网页二维码 -->
+	
+	<!-- 生成网址二维码 -->
 	<div data-role="page" id="pagetwo_ie" data-theme="a">
 		<div data-role="header" data-position="fixed">
 			<a href="#pageone" data-transition="flow" data-icon="back"
@@ -81,12 +82,12 @@
 				onclick="saveQrcode()">保存</a>
 		</div>
 		<div data-role="content">
-			生成网页二维码，需要输入网址全称：<input id="input1" type="text" >
-			<button onclick="generateQRCodeIe()" value="生成网页二维码"></button>
+			<input id="input" type="text" style="margin-left: 50px">
+			<button onclick="generateQRCodeIe()" value="生成二维码"></button>
 			<br>
-			<div id="message1"></div>
+			<div id="message"></div>
 			<div align="center">
-				<canvas id="qr-canvas1" width="300" height="300"></canvas>
+				<canvas id="qr-canvas" width="300" height="300"></canvas>
 			</div>
 
 
@@ -95,26 +96,27 @@
 			<h1>版权所有</h1>
 		</div>
 	</div>
-
-
-<!-- 生成通讯录二维码 -->
+	
+	
+	
+	
+	
+	<!-- 生成名片二维码 -->
 	<div data-role="page" id="pagetwo_name" data-theme="a">
 		<div data-role="header" data-position="fixed">
 			<a href="#pageone" data-transition="flow" data-icon="back"
 				data-direction="reverse" data-role="button">返回</a>
-			<h1>生成名片二维码</h1>
+			<h1>生成二维码</h1>
 			<a data-role="button" data-transition="flow" data-icon="plus"
 				onclick="saveQrcode()">保存</a>
 		</div>
 		<div data-role="content">
-		<!-- data-role="none" -->
-			姓名：<input id="input2" type="text" >
-			电话：<input id="input3" type="text" >
-			<button onclick="generateQRCodeName()" value="生成网页二维码"></button>
+			<input id="input" type="text" style="margin-left: 50px">
+			<button onclick="generateQRCode()" value="生成二维码"></button>
 			<br>
-			<div id="message2"></div>
+			<div id="message"></div>
 			<div align="center">
-				<canvas id="qr-canvas2" width="300" height="300"></canvas>
+				<canvas id="qr-canvas" width="300" height="300"></canvas>
 			</div>
 
 
@@ -123,8 +125,8 @@
 			<h1>版权所有</h1>
 		</div>
 	</div>
-
-
+	
+	
 
 
 	<!-- 识别后显示 -->
@@ -180,26 +182,7 @@
 	}
 </script>
 <script>
-//汉字支持
-function utf16to8(str) {
-	var out, i, len, c;
-	out = "";
-	len = str.length;
-	for (i = 0; i < len; i++) {
-		c = str.charCodeAt(i);
-		if ((c >= 0x0001) && (c <= 0x007F)) {
-			out += str.charAt(i);
-		} else if (c > 0x07FF) {
-			out += String.fromCharCode(0xE0 | ((c >> 12) & 0x0F));
-			out += String.fromCharCode(0x80 | ((c >> 6) & 0x3F));
-			out += String.fromCharCode(0x80 | ((c >> 0) & 0x3F));
-		} else {
-			out += String.fromCharCode(0xC0 | ((c >> 6) & 0x1F));
-			out += String.fromCharCode(0x80 | ((c >> 0) & 0x3F));
-		}
-	}
-	return out;
-}
+	
 
 	function generateQRCode() {
 		QR.canvas = document.getElementById('qr-canvas');
@@ -207,6 +190,24 @@ function utf16to8(str) {
 		QR.size = 300;
 
 		var input = document.getElementById('input');
+
+		if (input.value == "") {
+			$('#message').html("<font color='red'>输点内容吧!</font>");
+			return;
+		}else{
+			$('#message').html("   ");
+		}
+		QR.draw(utf16to8(input.value));
+
+	}
+	function generateQRCodeIe() {
+		alert(aaa);
+		QR.canvas = document.getElementById('qr-canvas');
+
+		QR.size = 300;
+
+		var input = document.getElementById('input');
+
 		if (input.value == "") {
 			$('#message').html("<font color='red'>输点内容吧!</font>");
 			return;
@@ -217,40 +218,26 @@ function utf16to8(str) {
 
 	}
 
-	function generateQRCodeIe() {
-		QR.canvas = document.getElementById('qr-canvas1');
-
-		QR.size = 300;
-
-		var input = document.getElementById('input1');
-		if (input.value == "") {
-			$('#message1').html("<font color='red'>输点内容吧!</font>");
-			return;
-		}else{
-			$('#message1').html("   ");
+	//汉字支持
+	function utf16to8(str) {
+		var out, i, len, c;
+		out = "";
+		len = str.length;
+		for (i = 0; i < len; i++) {
+			c = str.charCodeAt(i);
+			if ((c >= 0x0001) && (c <= 0x007F)) {
+				out += str.charAt(i);
+			} else if (c > 0x07FF) {
+				out += String.fromCharCode(0xE0 | ((c >> 12) & 0x0F));
+				out += String.fromCharCode(0x80 | ((c >> 6) & 0x3F));
+				out += String.fromCharCode(0x80 | ((c >> 0) & 0x3F));
+			} else {
+				out += String.fromCharCode(0xC0 | ((c >> 6) & 0x1F));
+				out += String.fromCharCode(0x80 | ((c >> 0) & 0x3F));
+			}
 		}
-		QR.draw(utf16to8(input.value));
-
+		return out;
 	}
-	function generateQRCodeName() {
-		
-		QR.canvas = document.getElementById('qr-canvas2');
-
-		QR.size = 300;
-
-		var input2 = document.getElementById('input2');
-		var input3 = document.getElementById('input3');
-		if (input3.value == "") {
-			$('#message2').html("<font color='red'>请输入电话!</font>");
-			return;
-		}else{
-			$('#message2').html("   ");
-		}
-		var content = "姓名"+input2.value+"电话"+input3.value;
-		QR.draw(utf16to8(content));
-
-	}
-	
 	//保存二维码
 	var saveQrcode = function(){
 		var canvas = document.getElementById("qr-canvas");

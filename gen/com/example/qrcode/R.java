@@ -46,10 +46,11 @@ public final class R {
         public static final int standard_padding=0x7f080000;
     }
     public static final class drawable {
-        public static final int ic_launcher=0x7f020000;
-        public static final int launcher_icon=0x7f020001;
-        public static final int share_via_barcode=0x7f020002;
-        public static final int shopper_icon=0x7f020003;
+        public static final int abc=0x7f020000;
+        public static final int ic_launcher=0x7f020001;
+        public static final int launcher_icon=0x7f020002;
+        public static final int share_via_barcode=0x7f020003;
+        public static final int shopper_icon=0x7f020004;
     }
     public static final class id {
         public static final int action_settings=0x7f090029;
@@ -119,33 +120,33 @@ public final class R {
     public static final class string {
         public static final int action_settings=0x7f0a007a;
         public static final int app_name=0x7f0a0000;
-        /**  <string name="app_name">ماسح الرمز الشريطي</string> 
+        /**  <string name="app_name">Barcode Scanner</string> 
+ <string name="app_name">Barcode Scanner</string> 
+ <string name="app_name">QRコードスキャナー</string> 
+ <string name="app_name">Barcode Scanner</string> 
+ <string name="app_name">Barcode Scanner</string> 
+ <string name="app_name">סורק ברקודים</string> 
  <string name="app_name">Баркод Скенер</string> 
  <string name="app_name">Barcode Scanner</string> 
+ <string name="app_name">बारकोड स्कैनर</string> 
  <string name="app_name">Barcode Scanner</string> 
+ <string name="app_name">Barcode Scanner</string> 
+ <string name="app_name">Barcode Scanner</string> 
+ <string name="app_name">Barcode Scanner</string> 
+ <string name="app_name">Barcode Scanner</string> 
+ <string name="app_name">바코드 스캐너</string> 
+ <string name="app_name">ماسح الرمز الشريطي</string> 
+ <string name="app_name">Barcode Scanner</string> 
+ <string name="app_name">Barkod Tarayıcısı</string> 
  <string name="app_name">Barcode Scanner</string> 
  <string name="app_name">Barcode Scanner</string> 
  <string name="app_name">Barcode Scanner</string> 
  <string name="app_name">Barcode Scanner</string> 
  <string name="app_name">Barra-kode Eskanerra</string> 
  <string name="app_name">Barcode Scanner</string> 
- <string name="app_name">Barcode Scanner</string> 
- <string name="app_name">סורק ברקודים</string> 
- <string name="app_name">बारकोड स्कैनर</string> 
- <string name="app_name">Barcode Scanner</string> 
- <string name="app_name">Barcode Scanner</string> 
- <string name="app_name">Barcode Scanner</string> 
- <string name="app_name">סורק ברקודים</string> 
- <string name="app_name">QRコードスキャナー</string> 
- <string name="app_name">바코드 스캐너</string> 
- <string name="app_name">Barcode Scanner</string> 
- <string name="app_name">Barcode Scanner</string> 
- <string name="app_name">Barcode Scanner</string> 
  <string name="app_name">Сканер штрих-кодов</string> 
  <string name="app_name">Barcode Scanner</string> 
- <string name="app_name">Barcode Scanner</string> 
- <string name="app_name">Barcode Scanner</string> 
- <string name="app_name">Barkod Tarayıcısı</string> 
+ <string name="app_name">סורק ברקודים</string> 
  <string name="app_name">条码扫描器</string> 
  <string name="app_name">條碼掃描器</string> 
          */
